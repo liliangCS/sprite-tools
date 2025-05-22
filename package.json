@@ -1,6 +1,6 @@
 {
   "name": "sprite-tools",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "description": "CLI tool to generate sprite sheets from a directory of images",
   "type": "module",
   "main": "index.js",

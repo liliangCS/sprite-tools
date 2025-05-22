@@ -1,11 +1,14 @@
 #!/usr/bin/env node
 import fs from "fs";
 import path from "path";
+import { createRequire } from "module";
 import sharp from "sharp";
 import { program } from "commander";
 import chalk from "chalk";
 import ora from "ora";
 import cliProgress from "cli-progress";
+const require = createRequire(import.meta.url);
+const { version } = require("./package.json");
 
 const theme = {
   success: chalk.greenBright,
@@ -167,7 +170,7 @@ async function generateSpriteFromDirectory(inputDir, outputDir, options) {
 program
   .name("sprite")
   .description(theme.highlight("CLI tool to generate sprite sheets from a directory of images"))
-  .version("1.1.0", "-v, --version", "show version")
+  .version(version, "-v, --version", "show version")
   .requiredOption("-i, --input <dir>", theme.info("input directory containing images"))
   .option("-o, --output <dir>", theme.info("output directory"), "./output")
   .option("-n, --name <name>", theme.info("base name for output files"), "sprite")
